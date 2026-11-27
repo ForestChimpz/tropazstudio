@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<title>About Us | Tropaz Studio</title>
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #080b12;
+  color: #f4f7ff;
+  font-family: Arial, sans-serif;
+}
+nav {
+  padding: 22px 7%;
+  background: #0c111d;
+  border-bottom: 1px solid #263247;
+  display: flex;
+  justify-content: space-between;
+}
+nav a { text-decoration: none; }
+.logo {
+  color: #58e7ff;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.back { color: #aab4c5; }
+.hero {
+  padding: 100px 7%;
+  text-align: center;
+  background: radial-gradient(ellipse, #172b43, transparent 70%);
+}
+.label {
+  color: #58e7ff;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+h1 { font-size: clamp(40px, 8vw, 72px); }
+h2 { color: #58e7ff; }
+p {
+  color: #aab4c5;
+  line-height: 1.9;
+}
+.hero p { max-width: 650px; margin: auto; }
+section { padding: 65px 7%; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+.box {
+  padding: 27px;
+  background: #101725;
+  border: 1px solid #263247;
+  border-radius: 9px;
+}
+.box h3 { color: #fff; }
+footer {
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid #263247;
+  color: #778397;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="index.html">TROPAZ STUDIO</a>
+  <a class="back" href="index.html">← Home</a>
+</nav>
+
+<header class="hero">
+  <div class="label">GET TO KNOW US</div>
+  <h1>ABOUT TROPAZ.</h1>
+  <p>
+    We are an independent creative development
+    studio focused on games, technology,
+    software and digital experiences.
+  </p>
+</header>
+
+<section>
+  <h2>Our Story</h2>
+  <p>
+    Tropaz Studio was created with a simple idea:
+    turn imagination into real digital experiences.
+    We explore game development, programming,
+    digital art and new technologies.
+  </p>
+  <p>
+    Every project is an opportunity to learn,
+    experiment and build something original.
+  </p>
+</section>
+
+<section>
+  <h2>Our Mission</h2>
+  <p>
+    To create original games, useful software
+    and creative experiences while building
+    our own independent development ecosystem.
+  </p>
+</section>
+
+<section>
+  <h2>What We Do</h2>
+
+  <div class="grid">
+    <div class="box">
+      <h3>🎮 Game Development</h3>
+      <p>Creating original games and interactive worlds.</p>
+    </div>
+
+    <div class="box">
+      <h3>🎨 Digital Art</h3>
+      <p>Designing pixel art, characters and game assets.</p>
+    </div>
+
+    <div class="box">
+      <h3>💻 Software</h3>
+      <p>Building applications, tools and digital platforms.</p>
+    </div>
+
+    <div class="box">
+      <h3>🤖 Technology</h3>
+      <p>Exploring automation, AI and server technology.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Our Vision</h2>
+  <p>
+    Build an independent studio where creativity,
+    technology and imagination come together.
+    We want to create worlds and experiences
+    that people can enjoy.
+  </p>
+</section>
+
+<footer>
+  © <span id="year"></span> Tropaz Studio. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
