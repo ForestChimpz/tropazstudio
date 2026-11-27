@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<title>Art Gallery | Tropaz Studio</title>
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #080b12;
+  color: #f4f7ff;
+  font-family: Arial, sans-serif;
+}
+nav {
+  padding: 22px 7%;
+  background: #0c111d;
+  border-bottom: 1px solid #263247;
+  display: flex;
+  justify-content: space-between;
+}
+nav a { text-decoration: none; }
+.logo { color: #58e7ff; font-weight: bold; letter-spacing: 3px; }
+.back { color: #aab4c5; }
+header {
+  padding: 75px 7%;
+  text-align: center;
+  background: radial-gradient(ellipse,#172b43,transparent 70%);
+}
+.label { color: #58e7ff; letter-spacing: 4px; font-size: 11px; }
+h1 { font-size: clamp(38px,8vw,65px); }
+p { color: #929eb2; line-height: 1.8; }
+header p { max-width: 550px; margin: auto; }
+main { padding: 35px 7% 80px; }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+button {
+  border: 1px solid #263247;
+  background: #101725;
+  color: #aab4c5;
+  padding: 11px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.active, button:hover {
+  background: #58e7ff;
+  color: #080b12;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 20px;
+}
+.art {
+  background: #101725;
+  border: 1px solid #263247;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.art img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  background: #172236;
+}
+.art-info { padding: 18px; }
+.art-info h3 { margin: 0 0 8px; }
+.art-info p { font-size: 13px; margin: 0; }
+.empty { display:none; color:#929eb2; }
+footer {
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid #263247;
+  color: #778397;
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <a class="logo" href="index.html">TROPAZ STUDIO</a>
+  <a class="back" href="index.html">← Home</a>
+</nav>
+
+<header>
+  <div class="label">CREATIVITY & DESIGN</div>
+  <h1>ART GALLERY.</h1>
+  <p>
+    A collection of artwork, game assets,
+    characters and visual experiments
+    from Tropaz Studio.
+  </p>
+</header>
+
+<main>
+  <div class="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="characters">Characters</button>
+    <button data-filter="environment">Environment</button>
+    <button data-filter="assets">Game Assets</button>
+    <button data-filter="concepts">Concept Art</button>
+  </div>
+
+  <div class="gallery">
+
+    <article class="art" data-category="characters">
+      <img src="https://placehold.co/600x450/172236/58e7ff?text=Character+Art" alt="Character artwork placeholder">
+      <div class="art-info">
+        <h3>Character Designs</h3>
+        <p>RPG heroes, NPCs and fantasy characters.</p>
+      </div>
+    </article>
+
+    <article class="art" data-category="environment">
+      <img src="https://placehold.co/600x450/172236/58e7ff?text=World+Design" alt="World design placeholder">
+      <div class="art-info">
+        <h3>World Design</h3>
+        <p>Fantasy maps, landscapes and environments.</p>
+      </div>
+    </article>
+
+    <article class="art" data-category="assets">
+      <img src="https://placehold.co/600x450/172236/58e7ff?text=Game+Assets" alt="Game assets placeholder">
+      <div class="art-info">
+        <h3>Game Assets</h3>
+        <p>Sprites, items, weapons and resources.</p>
+      </div>
+    </article>
+
+    <article class="art" data-category="concepts">
+      <img src="https://placehold.co/600x450/172236/58e7ff?text=Concept+Art" alt="Concept art placeholder">
+      <div class="art-info">
+        <h3>Concept Art</h3>
+        <p>Early ideas and creative experiments.</p>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Tropaz Studio
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const buttons = document.querySelectorAll("[data-filter]");
+const cards = document.querySelectorAll(".art");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    cards.forEach(card => {
+      card.style.display =
+        filter === "all" || card.dataset.category === filter
+        ? "block" : "none";
+    });
+  });
+});
+</script>
+</body>
+</html>
